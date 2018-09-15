@@ -21,6 +21,23 @@ app.use((req, res, next) => {
   next();
 });
 
+app.post('/spellcheck', (req, res) => {
+  uri = encodeURI(`https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mkt=en-us&mode=proof&text=${req.body.text}`)
+  axios ({
+    url: uri,
+    method: 'POST',
+    headers: {
+      'Ocp-Apim-Subscription-Key': 'c835add0136a44adafc4176ae7e27e58',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((corrected) => {
+      res.send(corrected.data.flaggedTokens)
+    }).catch((err) => {
+      res.status(400).send({Error: 'The spellcheck failed'});
+    });
+});
+
 app.post('/translate', (req, res) => {
   console.log(req.body.text);
   const text = req.body.text;
@@ -53,6 +70,7 @@ app.post('/translate', (req, res) => {
   // res.send({translatedText: `test!`});
 });
 
+
 app.post('/analyzePicture', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(404).send({Error: 'No image uploaded'});
@@ -78,6 +96,7 @@ app.post('/analyzePicture', upload.single('file'), (req, res) => {
       res.status(400).send({Error: 'An error occurred with Google Vision'});
     });
 });
+
 app.listen(PORT, () => {
   console.log(`[Server] : Running on port ${PORT}`);
 });
