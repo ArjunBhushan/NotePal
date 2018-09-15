@@ -1,7 +1,10 @@
 // dependencies
 import React, { Fragment } from 'react';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import IconButton from '@material-ui/core/IconButton';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
 // styling
 import './image-upload.css'
@@ -16,7 +19,8 @@ class ImageUpload extends React.Component {
     super(props);
 
     this.state = {
-      text: ''
+      text: '',
+      copied: false
     };
   }
 
@@ -57,6 +61,7 @@ class ImageUpload extends React.Component {
               onDrop={this.onImageDrop.bind(this)}>
                 <p>Drop an image or click to upload.</p>
             </Dropzone>
+            }
           </div>
         </div>
         <div>
@@ -65,6 +70,13 @@ class ImageUpload extends React.Component {
           <div className="result" onClick={this.select}>
             <p>Your file {this.state.uploadedFile.name} has been converted to text:</p>
             <p className="convertedText" >{this.state.text}</p>
+            <CopyToClipboard text={this.state.text}
+              onCopy={() => this.setState({copied: true})}>
+              <IconButton aria-label="Delete">
+                <AssignmentIcon />
+              </IconButton>
+            </CopyToClipboard>
+            <p style={{marginTop: '0'}}>{this.state.copied ? "Copied to Clipboard!" : ""}</p>
           </div>
         }
         </div>
