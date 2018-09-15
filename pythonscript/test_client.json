@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "notepal-216511",
+  "private_key_id": "99f800b436372b55006dbaab88821f608d89255b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1E02v0drHi8oA\n6RGQrvFKzWqiXhpC1Luxuvgghc0BhD15ICQ4Qcf1+w4dFtBvPltZiqGEt64aG30R\nyxUtWNFab3hZHTulfUIoQX2/PUSNaFdbMAUFk5wkJ44AT8YfzJwjkoTJ9S35bll7\nAzn0WiKsryezgQRZQMmuAf+Kfn53uchvjN3jMwGOCbakcylkcK0PKRpGJRCc8vE2\n09vOpmh3NwTj8YOyNc3qnZ6UR5nHby209BiVuLDrfqhDtbiXPb5tzNdlxr5kOvun\nTewlvKv8ip7vWWhKRMi1AXmcXvKa67tcqBfLV5cYDUwO3yHsnswg8sPxTDmQjxf3\nQhc7cTh1AgMBAAECggEABzDJjHpWaEcuUePvfSHdVh2bJvB6tX2yKGgm00/M6MsC\nD+3NUmiWUrfSAyi1RT2iLgeZy2Xp5YKC8HJymFbnFWLI0i0dgcBcILIdFruNndnv\nYiEhieunLy5c7rk8QmYDK0x1tnlkhnux1Pc3VXNA3j+kYXX1oL+4Yo8UwUCtr/5h\nAMu1I1+1Pf/JlDU3ewdTDPA6UUhxqlXwgpbcPZ7ynldOzVqauy3Eha1EVVMMs/jZ\nITSAanXI8JDJUuR6QGqeRJdf/IYjvPVUerNpFhZaSVZcxk/ZxcSG40BlEFbZAGhL\nXuLSORTUBWXLwLsWYeIj/WCPzAW/apW0kLPcDtlAjwKBgQDsjsHOAlt09xOEXggS\nQtWZ3ZUHkzx0hbxCDPOU9NFOHWS+XxS2JTNVVpgBISxZAt0c9R+bU8VXargrk+yo\nN3U75DKkFiDANlQQGSW638l54WYw1aQ8Bbs9121cue+QoNePbeWq43EyEK13Q9k+\nj04XFTYHMQYrx4hXfAY3K5ZwbwKBgQDD9S8CZN2WW1kx7mZmPkyFa8jFxlwMZfIv\n0yERcIMXLLo17aHsBEeabAHgR+9UVzsMwp7eDfGjV5YmjH2/+Dc0Kuj8Foiz86l/\nARwQqjEhUNYFRfXj26YNtyNznwNkNtcoILYFPJbBqxMwRY4EUgA00qFTMe6pLB5+\nJFWF/ItPWwKBgEsuz//GlgSlpklSjWQoY7TkTMI8lGFAQ+YGMcBs0rzt8J/knjOJ\nvTfpLqRlQ7ACjf3vFh2K0VSIMYKAIB4Siir/yuyFr+EHI05+f5RWHbWj4pOwwuLk\nu27bMgHfgnlH9Vq7hdv7L3XHASq/oKMWbq49ao98kEaHwxhy7ZLJQqX3AoGBAJcm\n8PPvydzI6axSMDp9o5jm4x9rOmV13bJ2MPO6zeN6ZMhkXJopUvISjf/qfPmZr7rQ\nBKtUJifQz8k8ZWNGm45p6v1IhHoKYZvNx1Azd2IzcGLw7BKuww+hTH9LENqkUqJp\nWP4BFmidBVgezsUWW4JjVn1N7sIffgXfEPkhLHQxAoGAF0qhUlaPCSTzRN7R8jZa\nJXdQtmgeMEoS2s3dyk4Je/VW4PjfR2aiCRuN5NnEJb0ygL9b6Bp2eEai7ZjenAMr\n1/ZO64ZiDEfMlHslAF08mQ1SzH1v0eUnwd5UjsJ8+rhR/HLgq98vVjgcgvcXZVVo\nHTzawZlPZmcqTdvgpA1Mfkk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "notepal@notepal-216511.iam.gserviceaccount.com",
+  "client_id": "107954786826465410598",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/notepal%40notepal-216511.iam.gserviceaccount.com"
+}
