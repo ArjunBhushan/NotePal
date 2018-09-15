@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import ResponseText from '../ResponseText'
+import ResponseText from '../ResponseText';
 
 // styling
 import './image-upload.css'
@@ -17,7 +17,7 @@ class ImageUpload extends React.Component {
     super(props);
 
     this.state = {
-      text: '',
+      text: null,
       uploadedFile: {
         name: ''
       }
@@ -63,7 +63,8 @@ class ImageUpload extends React.Component {
             </Dropzone>
           </div>
         </div>
-        <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/>
+
+        {this.state.text === null ? null : <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/>}
       </Fragment>
     )
   }
