@@ -15,7 +15,7 @@ class App extends Component {
           <h1 className="App-title">NotePal</h1>
         </header>
         <p className="App-intro">
-          Upload an image of your notes to get started!
+          Upload an image of your notes to get started.
         </p>
         <div>
           <ImageUpload /> 

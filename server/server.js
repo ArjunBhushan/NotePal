@@ -65,14 +65,32 @@ app.post('/translate', (req, res) => {
 
       console.log('Translations:');
       translations.forEach((translation, i) => {
-        console.log(`${text[i]} => (${targetLang}) ${translation}`);
+        res.send({translatedText: `${translation}`});
       });
     })
     .catch(err => {
-      console.error('ERROR:', err);
+      res.status(404).send({Error: 'An error occurred with Google Translate'});
     });
 
   // res.send({translatedText: `test!`});
+});
+
+app.post('/summarize', (req, res) => {
+  let numSentences = 3
+  console.log(numSentences)
+  uri = encodeURI(`http://api.meaningcloud.com/summarization-1.0?key=b5e571b2efbf07d5f7202bfa428e52ae&sentences=${numSentences}&txt=${req.body.text}`)
+  axios ({
+    url: uri,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      res.send({summarizedText: `${response.data.summary}`});
+    }).catch((err) => {
+      res.status(400).send({Error: 'The summarization failed'});
+    });
 });
 
 
