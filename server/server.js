@@ -60,11 +60,11 @@ app.post('/translate', (req, res) => {
 
       console.log('Translations:');
       translations.forEach((translation, i) => {
-        console.log(`${text[i]} => (${targetLang}) ${translation}`);
+        res.send({translatedText: `${translation}`});
       });
     })
     .catch(err => {
-      console.error('ERROR:', err);
+      res.status(404).send({Error: 'An error occurred with Google Translate'});
     });
 
   // res.send({translatedText: `test!`});
