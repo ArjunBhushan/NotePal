@@ -90,7 +90,7 @@ class ResponseText extends React.Component {
     }).then((res)=> {
       console.log(res);
       this.setState({
-        text: res.data
+        text: res.data.summarizedText
       });
     }).catch((err) => {
       console.log(err);
