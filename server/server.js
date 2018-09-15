@@ -5,8 +5,9 @@ const multer = require('multer')
 const axios = require('axios')
 const vision = require('@google-cloud/vision')
 const fs = require('fs')
-var PROTO_PATH = __dirname + '/vision_auth.json';
+
 process.env.GOOGLE_APPLICATION_CREDENTIALS  = './vision_auth.json';
+
 const upload = multer({ dest: 'uploads/'});
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,7 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/analyzePicture', upload.single('test'), (req, res) => {
+app.post('/analyzePicture', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(404).send({Error: 'No image uploaded'});
   }
