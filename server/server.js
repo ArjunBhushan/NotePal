@@ -1,11 +1,11 @@
 const express = require('express');
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const multer = require('multer')
-const axios = require('axios')
-const vision = require('@google-cloud/vision')
-const fs = require('fs')
-const {Translate} = require('@google-cloud/translate')
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const axios = require('axios');
+const vision = require('@google-cloud/vision');
+const fs = require('fs');
+const {Translate} = require('@google-cloud/translate');
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS  = __dirname + '/vision_auth.json';
 
@@ -22,8 +22,9 @@ app.use((req, res, next) => {
 });
 
 app.post('/spellcheck', (req, res) => {
+  let returnString = req.body.text;
   uri = encodeURI(`https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mkt=en-us&mode=proof&text=${req.body.text}`)
-  axios ({
+  axios({
     url: uri,
     method: 'POST',
     headers: {
@@ -32,8 +33,12 @@ app.post('/spellcheck', (req, res) => {
     }
   })
     .then((corrected) => {
-      res.send(corrected.data.flaggedTokens)
+      corrected.data.flaggedTokens.forEach((token) => {
+        returnString = returnString.replace(new RegExp(`\\b${token.token}\\b`), `${token.suggestions[0].suggestion}`);
+      });
+      res.send(returnString);
     }).catch((err) => {
+      console.log(err);
       res.status(400).send({Error: 'The spellcheck failed'});
     });
 });
