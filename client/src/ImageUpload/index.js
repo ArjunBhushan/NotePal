@@ -7,8 +7,7 @@ import request from 'superagent';
 import './image-upload.css'
 
 // constants
-const CLOUDINARY_UPLOAD_PRESET = 'dslmnmml';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dt8cqvn3h/upload';
+const UPLOAD_URL = 'https://notepal-api.herokuapp.com/analyzePicture';
 
 // component definiton 
 class ImageUpload extends React.Component {
@@ -17,7 +16,7 @@ class ImageUpload extends React.Component {
     super(props);
 
     this.state = {
-      uploadedFileUrl: ''
+      text: ''
     };
   }
 
@@ -30,8 +29,7 @@ class ImageUpload extends React.Component {
   }
 
   handleImageUpload(file) {
-    let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+    let upload = request.post(UPLOAD_URL)
                         .field('file', file);
 
     upload.end((err, response) => {
@@ -41,7 +39,7 @@ class ImageUpload extends React.Component {
 
       if (response.body.secure_url !== '') {
         this.setState({
-          uploadedFileUrl: response.body.secure_url
+          text: response.body.fullText
         });
       }
     });
@@ -63,10 +61,10 @@ class ImageUpload extends React.Component {
         </div>
         <div>
         {
-          this.state.uploadedFileUrl === '' ? null :
-          <div className="uploadedImage">
-            <img src={this.state.uploadedFileUrl} />
-            <p>{this.state.uploadedFile.name}</p>
+          this.state.text === '' ? null :
+          <div className="result" onClick={this.select}>
+            <p>Your file {this.state.uploadedFile.name} has been converted to text:</p>
+            <p className="convertedText" >{this.state.text}</p>
           </div>
         }
         </div>

@@ -5,6 +5,7 @@ const multer = require('multer')
 const axios = require('axios')
 const vision = require('@google-cloud/vision')
 const fs = require('fs')
+const {Translate} = require('@google-cloud/translate')
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS  = __dirname + '/vision_auth.json';
 
@@ -37,6 +38,38 @@ app.post('/spellcheck', (req, res) => {
     });
 });
 
+app.post('/translate', (req, res) => {
+  console.log(req.body.text);
+  const text = req.body.text;
+  const targetLang = req.body.lang;
+  // Your Google Cloud Platform project ID
+  const projectId = 'notepal-216511';
+
+  // Instantiates a client
+  const translate = new Translate({
+    projectId: projectId,
+  });
+
+  translate
+    .translate(text, targetLang)
+    .then(results => {
+      let translations = results[0];
+      translations = Array.isArray(translations)
+        ? translations
+        : [translations];
+
+      console.log('Translations:');
+      translations.forEach((translation, i) => {
+        console.log(`${text[i]} => (${targetLang}) ${translation}`);
+      });
+    })
+    .catch(err => {
+      console.error('ERROR:', err);
+    });
+
+  // res.send({translatedText: `test!`});
+});
+
 
 app.post('/analyzePicture', upload.single('file'), (req, res) => {
   if (!req.file) {
@@ -63,6 +96,7 @@ app.post('/analyzePicture', upload.single('file'), (req, res) => {
       res.status(400).send({Error: 'An error occurred with Google Vision'});
     });
 });
+
 app.listen(PORT, () => {
   console.log(`[Server] : Running on port ${PORT}`);
 });
