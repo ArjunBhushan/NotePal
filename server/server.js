@@ -76,9 +76,7 @@ app.post('/translate', (req, res) => {
 });
 
 app.post('/summarize', (req, res) => {
-  let numSentences = 3
-  console.log(numSentences)
-  uri = encodeURI(`http://api.meaningcloud.com/summarization-1.0?key=b5e571b2efbf07d5f7202bfa428e52ae&sentences=${numSentences}&txt=${req.body.text}`)
+  uri = encodeURI(`http://api.meaningcloud.com/summarization-1.0?key=b5e571b2efbf07d5f7202bfa428e52ae&sentences=3&txt=${req.body.text}`)
   axios ({
     url: uri,
     method: 'POST',
@@ -87,8 +85,13 @@ app.post('/summarize', (req, res) => {
     }
   })
     .then((response) => {
+      if (response.data.summary === '') {
+        return res.send({summarizedText: req.body.text})
+      }
       res.send({summarizedText: `${response.data.summary}`});
+
     }).catch((err) => {
+      console.log(err)
       res.status(400).send({Error: 'The summarization failed'});
     });
 });
