@@ -1,0 +1,19 @@
+.fileUploadWrapper {
+  text-align: center;
+}
+
+.fileUpload {
+  display: inline-block;
+}
+
+.fileUpload p {
+  padding-top: 150px;
+}
+
+.dropzone {
+  width: 500px;
+  height: 350px;
+  border: 3px dashed #aaa;
+  border-radius: 2%;
+}
+
