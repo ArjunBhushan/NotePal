@@ -20,6 +20,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.post('/translate', (req, res) => {
+  console.log(req.body);
+  res.send();
+});
+
 app.post('/analyzePicture', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(404).send({Error: 'No image uploaded'});
