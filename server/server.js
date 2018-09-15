@@ -70,6 +70,24 @@ app.post('/translate', (req, res) => {
   // res.send({translatedText: `test!`});
 });
 
+app.post('/summarize', (req, res) => {
+  let numSentences = 3
+  console.log(numSentences)
+  uri = encodeURI(`http://api.meaningcloud.com/summarization-1.0?key=b5e571b2efbf07d5f7202bfa428e52ae&sentences=${numSentences}&txt=${req.body.text}`)
+  axios ({
+    url: uri,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      res.send({summarizedText: `${response.data.summary}`});
+    }).catch((err) => {
+      res.status(400).send({Error: 'The summarization failed'});
+    });
+});
+
 
 app.post('/analyzePicture', upload.single('file'), (req, res) => {
   if (!req.file) {
