@@ -6,7 +6,7 @@ const axios = require('axios')
 const vision = require('@google-cloud/vision')
 const fs = require('fs')
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS  = './vision_auth.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS  = __dirname + '/vision_auth.json';
 
 const upload = multer({ dest: 'uploads/'});
 const app = express();
