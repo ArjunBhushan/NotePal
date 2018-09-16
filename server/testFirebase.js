@@ -94,7 +94,7 @@ const axios = require('axios')
 //   method: 'post',
 //   url: `https://notepal-216511.firebaseio.com/groups.json`,
 //   data: {
-//     ece105: {
+//     ece106: {
 //       name: 'Classical Mechanics',
 //       description: 'Forces in nature and Newton\'s laws, Dynamics and circular motion, Work, Energy and conservation of energy. Linear Momentum and linear Impulse, Rotational Dynamics. Oscillations; Simple Harmonic Motion. Wave motion; Traveling waves and standing waves. Thermal Physics; Temperature, Thermal energy and Specific heat, Ideal gas heat engines and Refrigerators. [Offered: F]',
 //       notes: {
@@ -105,18 +105,30 @@ const axios = require('axios')
 // })
 
 //ADD NOTES TO GROUP
-axios({
-  method: 'patch',
-  url: `https://notepal-216511.firebaseio.com/groups/-LMVZINVwM674PNPlpVB/ece105.json`,
-  data: {
-    notes: {
-      '-LMVR6VrTuTel5F5z_s7': true
-    }
-  }
-})
-  .then((group) => {
-    console.log(group.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// axios({
+//   method: 'patch',
+//   url: `https://notepal-216511.firebaseio.com/groups/-LMVZINVwM674PNPlpVB/ece105.json`,
+//   data: {
+//     notes: {
+//       '-LMVR6VrTuTel5F5z_s7': true
+//     }
+//   }
+// })
+//   .then((group) => {
+//     console.log(group.data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// GET COURSES
+// axios({
+//   method: 'get',
+//   url: `https://notepal-216511.firebaseio.com/groups.json`,
+// })
+//   .then((response) => {
+//     console.log(response.data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });

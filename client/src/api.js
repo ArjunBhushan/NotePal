@@ -13,5 +13,5 @@ const Response = {
     all: function() { return this.players}
   }
   
-  export default Response
+export default Response
   
