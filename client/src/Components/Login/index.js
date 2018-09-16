@@ -58,7 +58,7 @@ export default class LoginForm extends Component {
           <div className="Login">
             <form onSubmit={this.handleSubmit}>
               <h1>Sign in to NotePal</h1>
-              {this.state.error ? <p style={{color: 'red'}}>Those credentials do not exist</p> : null}
+              {this.state.error ? <p style={{color: 'red'}}>Incorrect username/password!</p> : null}
               <FormGroup controlId="email" bsSize="large" className="username">
                 <ControlLabel>Email </ControlLabel>
                 <FormControl

@@ -7,7 +7,7 @@ import Course from '../Course'
 // depending on the full pathname
 const Courses = () => (
   <Switch>
-    <Route exact path='/courses' component={FullCourses}/>
+    <Route exact path='/courses' render={() => <FullCourses />}/>
     <Route path='/courses/:number' component={Course}/>
   </Switch>
 )

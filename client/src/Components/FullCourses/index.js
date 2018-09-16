@@ -2,29 +2,68 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import CourseCard from '../CourseCard'
 import Grid from '@material-ui/core/Grid';
-import Response from '../../api'
 import './full-courses.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 // The FullRoster iterates over all of the players and creates
 // a link to their profile page.
-const FullCourses = () => (
-  <div>
-    <ul>
-      <Typography variant="headline" component="h1">
-        All Courses
-      </Typography>
-      <Grid container spacing={12}>
-        {Response.all().map(p => (
-          <Grid item xs={4}>
-            <Link key = {p.id} style={{textDecoration: 'none'}} to={'/courses/' + p.id}>
-              <CourseCard name={p.name} description={p.description} />
-            </Link>
+class FullCourses extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      loading: false
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ loading: true });
+
+    axios({
+      method: 'get',
+      url: `https://notepal-216511.firebaseio.com/groups.json`,
+    })
+      .then((response) => {
+        let courses = []
+        // console.log(Object.keys(response.data))
+        Object.keys(response.data).forEach((course) => {
+          courses.push(response.data[course])
+        })
+        this.setState({data: courses, loading: false})
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  render() {
+    const { data, loading } = this.state;
+
+    if (loading) {
+      return(<p>Loading...</p>)
+    }
+
+    return(
+      <div>
+        <ul>
+          <Typography variant="headline" component="h1">
+            All Courses
+          </Typography>
+          <Grid container spacing={16}>
+            {this.loading ? <div /> : data.map(p => (
+              <Grid key={p.code} item xs={4}>
+                <Link style={{textDecoration: 'none'}} to={'/courses/' + p.id}>
+                  <CourseCard name={p.name} description={p.description} />
+                </Link>
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
-    </ul>
-  </div>
-)
+        </ul>
+      </div>
+    )
+  }
+}
 
 export default FullCourses

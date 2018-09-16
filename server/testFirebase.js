@@ -116,3 +116,15 @@ axios({
 //   .catch((err) => {
 //     console.log(err);
 //   });
+
+// GET COURSES
+// axios({
+//   method: 'get',
+//   url: `https://notepal-216511.firebaseio.com/groups.json`,
+// })
+//   .then((response) => {
+//     console.log(response.data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
