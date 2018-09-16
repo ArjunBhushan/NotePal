@@ -1,4 +1,4 @@
-import React from 'react'
+import React, Component from 'react'
 import { Link } from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,6 +7,11 @@ import './full-notes.css'
 
 // The FullRoster iterates over all of the players and creates
 // a link to their profile page.
+class FullNotes extends Component {
+  state = {
+    notes : []
+  }
+}
 const FullNotes = () => (
   <div>
     <Typography variant="headline" component="h1" className="title">
