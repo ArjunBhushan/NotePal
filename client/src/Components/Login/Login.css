@@ -1,4 +1,8 @@
 @media all and (min-width: 480px) {
+    .LoginWrapper {
+      margin-top: 150px;
+    }
+
     .Login {
       padding: 50px 200px;
     }

@@ -14,8 +14,8 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">NotePal</h1>
+          <div className="App-nav"><Header /></div>
         </header>
-        <Header />
         <Main />
       </div>
     );

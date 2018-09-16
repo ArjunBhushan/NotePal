@@ -1,17 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import './header.css'
 
-// The Header creates links that can be used to navigate
-// between routes.
+// The Header creates links that can be used to navigate between routes.
 const Header = () => (
   <header>
-    <nav>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/courses'>Courses</Link></li>
-        <li><Link to='/notes'>My Notes</Link></li>
-      </ul>
+    <nav className="headerLinks">
+      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/'>Home</Link></Button>
+      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/login'>Login</Link></Button>
+      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/courses'>Courses</Link></Button>
+      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/notes'>My Notes</Link></Button>
     </nav>
   </header>
 )

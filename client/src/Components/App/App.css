@@ -22,3 +22,8 @@
   padding: 20px;
   text-align: center;
 }
+
+.App-nav {
+  margin: 0;
+  float: right;
+}

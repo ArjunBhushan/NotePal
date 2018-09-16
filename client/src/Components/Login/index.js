@@ -31,7 +31,7 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container direction="row" justify="center" alignItems="center" className="LoginWrapper">
         <Paper>
           <div className="Login">
             <form onSubmit={this.handleSubmit}>
