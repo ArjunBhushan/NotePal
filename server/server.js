@@ -96,6 +96,14 @@ app.post('/summarize', (req, res) => {
     });
 });
 
+app.get('/notePicture', (req, res) => {
+  const filePath = __dirname + '/' + req.query.filePath;
+  res.sendFile(filePath, null, (err) => {
+    if (err){
+      return res.status(404).send();
+    }
+  });
+});
 
 app.post('/analyzePicture', upload.single('file'), (req, res) => {
   if (!req.file) {

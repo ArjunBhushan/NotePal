@@ -23,7 +23,6 @@ class FullNotes extends Component {
       })
   }
   render() {
-    console.log(this.state.notes)
     return (
       <div>
         <Typography variant="headline" component="h1" className="title">
