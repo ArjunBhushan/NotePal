@@ -87,35 +87,35 @@ const axios = require('axios')
 //   });
 //
 // CREATE GROUP
-axios({
-  method: 'post',
-  url: `https://notepal-216511.firebaseio.com/groups.json`,
-  data: {
-    name: 'Electricity and Magnetism',
-    description: 'Electrostatics; electric field, flux, Gauss\'s Law, potential and potential energy. Capacitors; Dielectric, capacitance, electric energy storage, charging/discharging. Resistors; charge flow, current, resistance, Kirchhoff\'s voltage and current laws. Magnetostatic; magnetic force, magnetic fields, Ampere\'s Law. Inductors; magnetic flux, inductance, magnetic materials, magnetic energy storage. Time-Varying Fields; Faraday\'s Law, mutual inductance, simple motors and generators. [Offered: W, S]',
-    notes: {
-      '-LMVR6VrTuTel5F5z_s7': true
-    },
-    code: 'ECE106'
-  }
-})
-
-//ADD NOTES TO GROUP
 // axios({
-//   method: 'patch',
-//   url: `https://notepal-216511.firebaseio.com/groups/-LMVZINVwM674PNPlpVB/ece105.json`,
+//   method: 'post',
+//   url: `https://notepal-216511.firebaseio.com/groups.json`,
 //   data: {
+//     name: 'Electricity and Magnetism',
+//     description: 'Electrostatics; electric field, flux, Gauss\'s Law, potential and potential energy. Capacitors; Dielectric, capacitance, electric energy storage, charging/discharging. Resistors; charge flow, current, resistance, Kirchhoff\'s voltage and current laws. Magnetostatic; magnetic force, magnetic fields, Ampere\'s Law. Inductors; magnetic flux, inductance, magnetic materials, magnetic energy storage. Time-Varying Fields; Faraday\'s Law, mutual inductance, simple motors and generators. [Offered: W, S]',
 //     notes: {
 //       '-LMVR6VrTuTel5F5z_s7': true
-//     }
+//     },
+//     code: 'ECE106'
 //   }
 // })
-//   .then((group) => {
-//     console.log(group.data);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+
+//ADD NOTES TO GROUP
+axios({
+  method: 'patch',
+  url: `https://notepal-216511.firebaseio.com/groups/-LMWF7dfchGYgcmBddou.json`,
+  data: {
+    notes: {
+      '-LMWFCSe2eds4ZRPKnja': true
+    }
+  }
+})
+  .then((group) => {
+    console.log(group.data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // GET COURSES
 // axios({

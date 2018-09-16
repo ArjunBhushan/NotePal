@@ -63,6 +63,7 @@ class ImageUpload extends React.Component {
           }
         })
           .then(() => {
+            console.log(response.body)
             this.setState({
               text: response.body.fullText,
               loading: false,
@@ -77,6 +78,7 @@ class ImageUpload extends React.Component {
   }
 
   render() {
+    console.log(this.state.text)
     return(
       <Fragment>
         <div className="fileUploadWrapper">
@@ -92,7 +94,7 @@ class ImageUpload extends React.Component {
             {this.state.loading ? <CircularProgress /> : <div />}
           </div>
         </div>
-        {this.state.text === null ? null : <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/>}
+        {this.state.text ? <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/> : null}
       </Fragment>
     )
   }
