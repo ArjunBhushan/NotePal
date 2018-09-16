@@ -51,7 +51,7 @@ class FullCourses extends React.Component {
           </Typography>
           <Grid container spacing={16}>
             {this.loading ? <div /> : data.map(p => (
-              <Grid key={p.code} item xs={4}>
+              <Grid key={p.code} item xs={3}>
                 <Link style={{textDecoration: 'none'}} to={'/courses/' + Object.keys(p.notes).join(', ')}>
                   <CourseCard name={p.name} description={p.description} />
                 </Link>
