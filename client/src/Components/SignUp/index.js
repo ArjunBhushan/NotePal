@@ -41,7 +41,8 @@ export default class SignUp extends Component {
       headers : {'Content-Type' : 'application/json'}
     })
       .then((token) => {
-        localStorage.setItem('token', token.data);
+        localStorage.setItem('token', token.data.idToken);
+        localStorage.setItem('userId', token.data.localId);
         this.setState({error: false});
         this.props.history.push('/');
       }).catch((err) => {

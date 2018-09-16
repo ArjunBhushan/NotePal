@@ -66,43 +66,39 @@ const axios = require('axios')
 // addNote()
 //   .then((token) => {
 //     const userId = token.localId;
-//     axios({
-//       method: 'post',
-//       url: `https://notepal-216511.firebaseio.com/notes.json?auth=${token.idToken}`,
-//       data: {
-//         image: 'test.jpg',
-//         text: 'My nane is Arjun',
-//         userId,
-//         transFR: 'Je m\'apple Arjun',
-//         summary: 'I am Arjun',
-//         spellcheck: 'My name is Arjun'
-//       }
-//     })
-//       .then((note) => {
-//         console.log(note.data);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
+    // axios({
+    //   method: 'post',
+    //   url: `https://notepal-216511.firebaseio.com/notes.json?auth=${token.idToken}`,
+    //   data: {
+    //     image: 'test.jpg',
+    //     text: 'My nane is Arjun',
+    //     userId,
+    //   }
+    // })
+    //   .then((note) => {
+    //     console.log(note.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 //   })
 //   .catch((err) => {
 //     console.log(err)
 //   });
 //
-// // CREATE GROUP
-// axios({
-//   method: 'post',
-//   url: `https://notepal-216511.firebaseio.com/groups.json`,
-//   data: {
-//     ece106: {
-//       name: 'Classical Mechanics',
-//       description: 'Forces in nature and Newton\'s laws, Dynamics and circular motion, Work, Energy and conservation of energy. Linear Momentum and linear Impulse, Rotational Dynamics. Oscillations; Simple Harmonic Motion. Wave motion; Traveling waves and standing waves. Thermal Physics; Temperature, Thermal energy and Specific heat, Ideal gas heat engines and Refrigerators. [Offered: F]',
-//       notes: {
-//         '-LMVR6VrTuTel5F5z_s7': true
-//       }
-//     }
-//   }
-// })
+// CREATE GROUP
+axios({
+  method: 'post',
+  url: `https://notepal-216511.firebaseio.com/groups.json`,
+  data: {
+    name: 'Electricity and Magnetism',
+    description: 'Electrostatics; electric field, flux, Gauss\'s Law, potential and potential energy. Capacitors; Dielectric, capacitance, electric energy storage, charging/discharging. Resistors; charge flow, current, resistance, Kirchhoff\'s voltage and current laws. Magnetostatic; magnetic force, magnetic fields, Ampere\'s Law. Inductors; magnetic flux, inductance, magnetic materials, magnetic energy storage. Time-Varying Fields; Faraday\'s Law, mutual inductance, simple motors and generators. [Offered: W, S]',
+    notes: {
+      '-LMVR6VrTuTel5F5z_s7': true
+    },
+    code: 'ECE106'
+  }
+})
 
 //ADD NOTES TO GROUP
 // axios({

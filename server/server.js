@@ -116,7 +116,7 @@ app.post('/analyzePicture', upload.single('file'), (req, res) => {
     .documentTextDetection(request)
     .then((results) =>{
       const fullTextAnnotation = results[0].fullTextAnnotation;
-      res.send({fullText: `${fullTextAnnotation.text}`});
+      res.send({fullText: `${fullTextAnnotation.text}`, filePath});
     })
     .catch((err) => {
       res.status(400).send({Error: 'An error occurred with Google Vision'});
