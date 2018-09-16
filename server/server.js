@@ -102,7 +102,7 @@ app.get('/notePicture', (req, res) => {
     if (err){
       return res.status(404).send();
     }
-  })
+  });
 });
 
 app.post('/analyzePicture', upload.single('file'), (req, res) => {
