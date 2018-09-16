@@ -78,25 +78,33 @@ class ImageUpload extends React.Component {
   }
 
   render() {
-    console.log(this.state.text)
-    return(
-      <Fragment>
-        <div className="fileUploadWrapper">
-          <div className="fileUpload">
-            <Dropzone
-              className="dropzone"
-              multiple={false}
-              accept="image/*"
-              onDrop={this.onImageDrop.bind(this)}>
-                <p>Drop an image or click to upload.</p>
-            </Dropzone>
-            {this.state.error ? <p style = {{color: 'red'}}>An error occurred while uploading that file.</p> : null}
-            {this.state.loading ? <CircularProgress /> : <div />}
-          </div>
+    if (this.state.text !== null) {
+      return <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/>
+    } else {
+      return(
+        <div>
+          <p className="App-intro">
+            Upload an image of your notes to get started.
+          </p>
+          <Fragment>
+            <div className="fileUploadWrapper">
+              <div className="fileUpload">
+                <Dropzone
+                  className="dropzone"
+                  multiple={false}
+                  accept="image/*"
+                  onDrop={this.onImageDrop.bind(this)}>
+                    <p>Drop an image or click to upload.</p>
+                </Dropzone>
+                {this.state.error ? <p style = {{color: 'red'}}>An error occurred while uploading that file.</p> : null}
+                {this.state.loading ? <CircularProgress /> : <div />}
+              </div>
+            </div>
+            {this.state.text ? <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/> : null}
+          </Fragment>
         </div>
-        {this.state.text ? <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/> : null}
-      </Fragment>
-    )
+      )
+    }
   }
 }
 
