@@ -1,8 +1,8 @@
 # NotePal
 
 A web application for converting handwritten notes to editable text. 
-Created by Arjun Bhushan, Kevin Jin, Molan Ren, and Priyanshu Gandhi. 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+![Image Upload](screenshots/image_upload/.png "Image Upload Page")
 
 ## Features
 
@@ -15,4 +15,22 @@ Easily translate your notes from English to French.
 Checks your spelling so you don't have to. 
 
 ### Summarization 
-Notes are too long? Use the summarization feature to quickly create a summary section for your study notes. 
+Notes are too long? Use the summarization feature to quickly create a summary section for your study notes.
+
+## Built With
+
+* [Google Vision API](https://cloud.google.com/vision/)
+* [Google Translate API](https://cloud.google.com/translate/)
+* [Bing Spell Check API](https://azure.microsoft.com/en-ca/services/cognitive-services/spell-check/)
+* [MeaningCloud Summarization API](https://www.meaningcloud.com/products/automatic-summarization)
+* [FireBase](https://firebase.google.com/)
+* [Heroku](https://www.heroku.com/)
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+## Contributors
+
+* Kevin Jin
+* Molan Ren
+* Arjun Bhushan
+* Priyanshu Gandhi
