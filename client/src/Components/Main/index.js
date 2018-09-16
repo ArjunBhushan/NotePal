@@ -4,6 +4,7 @@ import Home from '../Home'
 import LoginForm from '../Login'
 import Courses from '../Courses'
 import Notes from '../Notes'
+import SignUp from '../SignUp'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -17,6 +18,7 @@ const Main = () => (
       <Route path='/login' component={LoginForm}/>
       <Route path='/courses' component={Courses}/>
       <Route path='/notes' component={Notes}/>
+      <Route path='/signup' component={SignUp}/>
     </Switch>
   </main>
 )

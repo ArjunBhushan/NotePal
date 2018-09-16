@@ -130,12 +130,11 @@ class ResponseText extends React.Component {
             <CopyToClipboard text={this.state.text}
               onCopy={() => this.setState({copied: true})}>
               <IconButton aria-label="Copy to clipboard">
-                <Tooltip title="Copy to clipboard" placement="right">
+                <Tooltip title={this.state.copied ? "Copied!" : "Copy to clipboard"} placement="right">
                   <AssignmentIcon />
                 </Tooltip>
               </IconButton>
             </CopyToClipboard>
-            <p className="copyButton">{this.state.copied ? "Copied to clipboard!" : ""}</p>
           </Grid>
         </Grid>
         

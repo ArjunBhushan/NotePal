@@ -6,6 +6,7 @@ import ResponseText from '../ResponseText';
 
 // styling
 import './image-upload.css'
+import { CircularProgress } from '@material-ui/core';
 
 // constants
 const UPLOAD_URL = 'https://notepal-api.herokuapp.com/analyzePicture';
@@ -19,14 +20,16 @@ class ImageUpload extends React.Component {
     this.state = {
       text: null,
       uploadedFile: {
-        name: ''
+        name: '',
+        loading: false
       }
     };
   }
 
   onImageDrop(files) {
     this.setState({
-      uploadedFile: files[0]
+      uploadedFile: files[0],
+      loading: true
     });
 
     this.handleImageUpload(files[0]);
@@ -43,7 +46,8 @@ class ImageUpload extends React.Component {
 
       if (response.body !== '') {
         this.setState({
-          text: response.body.fullText
+          text: response.body.fullText,
+          loading: false
         });
       }
     });
@@ -61,6 +65,7 @@ class ImageUpload extends React.Component {
               onDrop={this.onImageDrop.bind(this)}>
                 <p>Drop an image or click to upload.</p>
             </Dropzone>
+            {this.state.loading ? <CircularProgress /> : <div />}
           </div>
         </div>
 
