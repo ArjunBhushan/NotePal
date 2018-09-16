@@ -134,11 +134,11 @@ app.get('/myMessages/:userId', (req, res) => {
     let keys = Object.keys(data.data).filter((key) => {
       return data.data[key].userId === userId
     });
-    let messages = [];
+    let notes = [];
     keys.forEach((key) => {
-      messages.push(data.data[key]);
+      notes.push(data.data[key]);
     });
-    res.send({messages})
+    res.send({notes})
   }).catch((err) => {
     res.status(400).send({Error: 'An error occured while fetching your messages'});
   })
