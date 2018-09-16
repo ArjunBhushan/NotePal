@@ -87,6 +87,20 @@ const axios = require('axios')
 //   });
 //
 // CREATE GROUP
+axios({
+  method: 'post',
+  url: `https://notepal-216511.firebaseio.com/groups.json`,
+  data: {
+    name: 'Elementary Algorithm Design and Data Abstraction',
+    description: 'This course examines elementary data structures and algorithms using the functional and imperative paradigms of computation, and discusses issues surrounding the effective use of programming languages in "real-world" environments.',
+    notes: {
+      '-LMVR6VrTuTel5F5z_s7': true
+    },
+    code: 'CS136'
+  }
+})
+
+//ADD NOTES TO GROUP
 // axios({
 //   method: 'post',
 //   url: `https://notepal-216511.firebaseio.com/groups.json`,
