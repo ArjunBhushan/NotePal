@@ -34,7 +34,7 @@ app.post('/spellcheck', (req, res) => {
   })
     .then((corrected) => {
       corrected.data.flaggedTokens.forEach((token) => {
-        returnString = returnString.replace(new RegExp(`\\b${token.token}\\b`), `${token.suggestions[0].suggestion}`);
+        returnString = returnString.replace(token.token, token.suggestions[0].suggestion);
       });
       res.send(returnString);
     }).catch((err) => {
@@ -96,14 +96,12 @@ app.post('/summarize', (req, res) => {
     });
 });
 
-app.get('/notePicture', (req, res) => {
-  const filePath = __dirname + '/' + req.query.filePath;
-  res.sendFile(filePath, null, (err) => {
-    if (err){
-      return res.status(404).send();
-    }
-  });
-});
+// app.get('/notePicture', (req, res) => {
+//   const filePahtreq.query.filePath;
+//   //const userId = req.params.userId;
+//   //console.log(path)
+//   //res.sendFile()
+// });
 
 app.post('/analyzePicture', upload.single('file'), (req, res) => {
   if (!req.file) {

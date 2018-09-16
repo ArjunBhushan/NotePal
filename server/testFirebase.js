@@ -87,18 +87,18 @@ const axios = require('axios')
 //   });
 //
 // CREATE GROUP
-axios({
-  method: 'post',
-  url: `https://notepal-216511.firebaseio.com/groups.json`,
-  data: {
-    name: 'Elementary Algorithm Design and Data Abstraction',
-    description: 'This course examines elementary data structures and algorithms using the functional and imperative paradigms of computation, and discusses issues surrounding the effective use of programming languages in "real-world" environments.',
-    notes: {
-      '-LMVR6VrTuTel5F5z_s7': true
-    },
-    code: 'CS136'
-  }
-})
+// axios({
+//   method: 'post',
+//   url: `https://notepal-216511.firebaseio.com/groups.json`,
+//   data: {
+//     name: 'Elementary Algorithm Design and Data Abstraction',
+//     description: 'This course examines elementary data structures and algorithms using the functional and imperative paradigms of computation, and discusses issues surrounding the effective use of programming languages in "real-world" environments.',
+//     notes: {
+//       '-LMVR6VrTuTel5F5z_s7': true
+//     },
+//     code: 'CS136'
+//   }
+// })
 
 //ADD NOTES TO GROUP
 // axios({
@@ -117,10 +117,10 @@ axios({
 //ADD NOTES TO GROUP
 axios({
   method: 'patch',
-  url: `https://notepal-216511.firebaseio.com/groups/-LMWF7dfchGYgcmBddou.json`,
+  url: `https://notepal-216511.firebaseio.com/groups/-LMWEsFTmc9wWbHbPO-f.json`,
   data: {
     notes: {
-      '-LMWFCSe2eds4ZRPKnja': true
+      '-LMXDOY7kJMuRvx5vhVN': true
     }
   }
 })
