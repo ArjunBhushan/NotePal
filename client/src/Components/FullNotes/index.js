@@ -33,7 +33,11 @@ class FullNotes extends Component {
             <Card key={note.image} className="noteCard">
               <CardContent>
                 <Typography variant="headline" component="h2">
-                  <Link style={{textDecoration: 'none', color: '#484848'}} to={`/notes/${note.key}`}>{note.text}</Link>
+                  <Link style={{textDecoration: 'none', color: '#484848'}}
+                  to={{
+                    pathname: `/notes/${note.key}`,
+                    state: { text: note.text }}}
+                  >{note.text}</Link>
                 </Typography>
               </CardContent>
             </Card>
