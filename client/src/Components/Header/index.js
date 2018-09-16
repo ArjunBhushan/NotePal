@@ -7,10 +7,10 @@ import './header.css'
 const Header = () => (
   <header>
     <nav className="headerLinks">
-      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/'>Home</Link></Button>
-      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/login'>Login</Link></Button>
-      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/courses'>Courses</Link></Button>
-      <Button color="primary" style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/notes'>My Notes</Link></Button>
+      <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/'>Home</Link></Button>
+      <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/login'>Login</Link></Button>
+      <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/courses'>Courses</Link></Button>
+      <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/notes'>My Notes</Link></Button>
     </nav>
   </header>
 )
