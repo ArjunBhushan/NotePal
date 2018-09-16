@@ -32,17 +32,16 @@ class FullNotes extends Component {
             <Grid container spacing={16}>
             {
               this.state.notes.map(note => (
-                <Grid key={note.image} item xs={3}>
+                <Grid key={note.key} item xs={3}>
                   <Link style={{textDecoration: 'none'}} to={{
                     pathname: `/notes/${note.key}`,
                     state: { text: note.text }}}>
-                    <CourseCard image={note.image} name={''} description={note.text} />
+                    <CourseCard name={''} description={note.text} />
                   </Link>
                 </Grid>
               ))
             }
-            </Grid>
-          }
+          </Grid>
         </ul>
       </div>
     )

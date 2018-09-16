@@ -15,11 +15,13 @@ const Note = (props) => {
       <ResponseText text={props.text} />
       <Grid container direction="row" className="backButton">
         <Grid item xs={12}>
-          <Tooltip title="Back to My Notes">
-            <Button style={{backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Back">
-              <ArrowIcon><Link to='/notes'>Back</Link></ArrowIcon>
-            </Button>
-          </Tooltip>
+          <Link to='/notes'>
+            <Tooltip title="Back to My Notes">
+              <Button style={{height: '40px', width: '40px', backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Back">
+                <ArrowIcon />
+              </Button>
+            </Tooltip>
+          </Link>
         </Grid>
       </Grid>
     </div>

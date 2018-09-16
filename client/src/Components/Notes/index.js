@@ -6,11 +6,11 @@ import Note from '../Note'
 const Notes = (props) => {
   return(
     <div>
-    <Switch> 
-      <Route exact path='/notes' component={FullNotes}/>
-      <Route path='/notes/:number' render={(props) => <Note text={props.location.state.text} />}/>
-    </Switch>
-  </div>
+      <Switch> 
+        <Route exact path='/notes' component={FullNotes}/>
+        <Route path='/notes/:number' render={(props) => <Note text={props.location.state.text} />}/>
+      </Switch>
+   </div>
   ) 
 }
 
