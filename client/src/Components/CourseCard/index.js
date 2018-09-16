@@ -22,7 +22,7 @@ function CourseCard(props) {
     <Card style={{marginBottom: '20px', marginTop: '20px', height: '200px', overflowY: 'scroll'}}
     className={classes.card}>
       <CardActionArea>
-        {props.image === undefined ? <div /> :
+        {/* {props.image === undefined ? <div /> :
           <CardMedia
           component="img"
           className={classes.media}
@@ -30,7 +30,7 @@ function CourseCard(props) {
           image={"https://notepal-api.herokuapp.com/notePicture?filePath=" + props.image}
           title="Image Not Found"
         />
-        }
+        } */}
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
             {props.name}
