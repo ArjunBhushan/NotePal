@@ -88,7 +88,7 @@ class ImageUpload extends React.Component {
               onDrop={this.onImageDrop.bind(this)}>
                 <p>Drop an image or click to upload.</p>
             </Dropzone>
-            <p style = {{color: 'red'}}>An error occurred while uploading that file.</p>
+            {this.state.error ? <p style = {{color: 'red'}}>An error occurred while uploading that file.</p> : null}
             {this.state.loading ? <CircularProgress /> : <div />}
           </div>
         </div>
