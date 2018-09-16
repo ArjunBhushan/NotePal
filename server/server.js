@@ -136,7 +136,7 @@ app.get('/myMessages/:userId', (req, res) => {
     });
     let notes = [];
     keys.forEach((key) => {
-      notes.push(data.data[key]);
+      notes.push({data.data[key], key});
     });
     res.send({notes})
   }).catch((err) => {
