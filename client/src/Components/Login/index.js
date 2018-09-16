@@ -63,7 +63,7 @@ export default class LoginForm extends Component {
                 Login
               </Button>
               <Grid className="signUpWrapper">
-                <Link style={{marginTop: '10px', textDecoration: 'none'}} to='/signup'>Don't have an account? Sign up now</Link>
+                <Link style={{marginTop: '10px', textDecoration: 'none', color: '#484848', fontSize: 12}} to='/signup'>Don't have an account? Sign up now</Link>
               </Grid>
             </form>
            
