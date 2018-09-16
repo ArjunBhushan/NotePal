@@ -41,7 +41,10 @@ class Course extends React.Component {
           <Grid container spacing={16}>
             {this.loading ? <div /> : 
               <Grid item xs={4}>
-                <Link style={{textDecoration: 'none'}} to={'/courses/'}>
+                <Link
+                  style={{textDecoration: 'none'}}
+                  to={{pathname: `/notes/${this.props.match.params.number}`,
+                  state: { text: this.state.data.text }}}>
                   <CourseCard image={this.state.data.image} name={''} description={this.state.data.text} />
                 </Link>
               </Grid>
