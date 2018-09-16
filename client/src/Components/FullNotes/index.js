@@ -25,21 +25,23 @@ class FullNotes extends Component {
   render() {
     return (
       <div>
-        <Typography variant="headline" component="h1" className="title">
-          My Notes
-        </Typography>
-          <Grid container spacing={16}>
-          {
-            this.state.notes.map(note => (
-              <Grid key={note.image} item xs={3}>
-                <Link style={{textDecoration: 'none'}} to={`/notes/${note.key}`}>
-                  <CourseCard image={note.image} name={''} description={note.text} />
-                </Link>
-              </Grid>
-            ))
+        <ul>
+          <Typography variant="headline" component="h1" className="title">
+            My Notes
+          </Typography>
+            <Grid container spacing={16}>
+            {
+              this.state.notes.map(note => (
+                <Grid key={note.image} item xs={3}>
+                  <Link style={{textDecoration: 'none'}} to={`/notes/${note.key}`}>
+                    <CourseCard image={note.image} name={''} description={note.text} />
+                  </Link>
+                </Grid>
+              ))
+            }
+            </Grid>
           }
-          </Grid>
-        }
+        </ul>
       </div>
       // <div>
       //   <Typography variant="headline" component="h1" className="title">
