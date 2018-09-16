@@ -2,12 +2,10 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import CourseCard from '../CourseCard'
 import Grid from '@material-ui/core/Grid';
-import './full-courses.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import './full-courses.css'
 
-// The FullRoster iterates over all of the players and creates
-// a link to their profile page.
 class FullCourses extends React.Component {
   constructor(props) {
     super(props);

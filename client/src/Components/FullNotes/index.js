@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import './full-notes.css'
 import axios from 'axios'
 
-// The FullRoster iterates over all of the players and creates
-// a link to their profile page.
 class FullNotes extends Component {
   state = {
     notes : []

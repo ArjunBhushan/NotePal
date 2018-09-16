@@ -115,17 +115,17 @@ class ResponseText extends React.Component {
         <Grid container direction="row">
           <Grid item xs={1} className="optionButtons">
             <Tooltip title="Translate" placement="left">
-              <Button onClick={() => {this.handleTranslate()}} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Edit">
+              <Button onClick={() => {this.handleTranslate()}} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Translate">
                 <TranslateIcon />
               </Button>
             </Tooltip>
             <Tooltip title="Spell Check" placement="left">
-              <Button onClick={() => {this.handleSpellCheck()}} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Edit">
+              <Button onClick={() => {this.handleSpellCheck()}} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Spell Check">
               <CheckIcon />
               </Button>
             </Tooltip>
             <Tooltip title="Summarize" placement="left">
-              <Button onClick={() => {this.handleSummarize()}} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Edit">
+              <Button onClick={() => {this.handleSummarize()}} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Summarize">
                 <SubjectIcon />
               </Button>
             </Tooltip>
