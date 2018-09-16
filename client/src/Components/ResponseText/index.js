@@ -30,13 +30,6 @@ class ResponseText extends React.Component {
       copied: false,
       isEnglish: true
     };
-
-  }
-
-  componentDidMount() {
-    this.setState({
-      text: this.props.text
-    });
   }
 
   handleChange(event) {
@@ -56,7 +49,6 @@ class ResponseText extends React.Component {
         lang
       }
     }).then((res)=> {
-      console.log(res);
       this.setState({
         text: res.data.translatedText
       });
@@ -78,7 +70,6 @@ class ResponseText extends React.Component {
         text: this.state.text
       }
     }).then((res)=> {
-      console.log(res);
       this.setState({
         text: res.data
       });
@@ -95,7 +86,6 @@ class ResponseText extends React.Component {
         text: this.state.text
       }
     }).then((res)=> {
-      console.log(res);
       this.setState({
         text: res.data.summarizedText
       });
