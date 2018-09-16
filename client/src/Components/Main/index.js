@@ -16,10 +16,10 @@ const Main = () => {
   return (
     <main>
       <Switch>
-        <Route path='/login' component={LoginForm}/>
+        {token ? null : <Route path='/login' component={LoginForm}/>}
         {token ? <Route path='/courses' component={Courses}/> : null}
         {token ? <Route path='/notes' component={Notes}/> : null}
-        <Route path='/signup' component={SignUp}/>
+        {token ? null : <Route path='/signup' component={SignUp}/>}
         {token ? <Route path='/' component={Home}/> : null}
         <Redirect to = '/login'/>
       </Switch>

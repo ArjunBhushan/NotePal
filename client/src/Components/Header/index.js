@@ -10,7 +10,7 @@ const Header = () => {
     <header>
       <nav className="headerLinks">
         {token ? <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/'>Home</Link></Button> : null}
-        <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/login'>Login</Link></Button>
+        {token ? null : <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/login'>Login</Link></Button>}
         {token ? <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/courses'>Courses</Link></Button> : null}
         {token ? <Button style={{marginRight: 10}}><Link style={{color: '#fff', textDecoration: 'none'}} to='/notes'>My Notes</Link></Button> : null}
       </nav>
