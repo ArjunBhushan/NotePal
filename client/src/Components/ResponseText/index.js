@@ -19,7 +19,6 @@ const TRANSLATE_URL = 'https://notepal-api.herokuapp.com/translate';
 const SPELL_CHECK_URL = 'https://notepal-api.herokuapp.com/spellcheck';
 const SUMMARIZE_URL = 'https://notepal-api.herokuapp.com/summarize';
 
-
 // component definiton 
 class ResponseText extends React.Component {
 
@@ -31,8 +30,6 @@ class ResponseText extends React.Component {
       copied: false
     };
 
-    this.handleSummarize = this.handleSummarize.bind(this);
-    this.handleSpellCheck = this.handleSpellCheck.bind(this);
   }
 
   componentDidMount() {
@@ -118,7 +115,7 @@ class ResponseText extends React.Component {
               </Button>
             </Tooltip>
             <Tooltip title="Summarize" placement="left">
-              <Button onClick={this.handleSummarize} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Edit">
+              <Button onClick={() => {this.handleSummarize()}} style={{marginTop: 5, marginBottom: 5, marginRight: 1000, height: 40, width: 40, backgroundColor: '#484848'}} variant="fab" color="primary" aria-label="Edit">
                 <SubjectIcon />
               </Button>
             </Tooltip>
