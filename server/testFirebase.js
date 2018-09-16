@@ -91,12 +91,12 @@ axios({
   method: 'post',
   url: `https://notepal-216511.firebaseio.com/groups.json`,
   data: {
-    name: 'Electricity and Magnetism',
-    description: 'Electrostatics; electric field, flux, Gauss\'s Law, potential and potential energy. Capacitors; Dielectric, capacitance, electric energy storage, charging/discharging. Resistors; charge flow, current, resistance, Kirchhoff\'s voltage and current laws. Magnetostatic; magnetic force, magnetic fields, Ampere\'s Law. Inductors; magnetic flux, inductance, magnetic materials, magnetic energy storage. Time-Varying Fields; Faraday\'s Law, mutual inductance, simple motors and generators. [Offered: W, S]',
+    name: 'Elementary Algorithm Design and Data Abstraction',
+    description: 'This course examines elementary data structures and algorithms using the functional and imperative paradigms of computation, and discusses issues surrounding the effective use of programming languages in "real-world" environments.',
     notes: {
       '-LMVR6VrTuTel5F5z_s7': true
     },
-    code: 'ECE106'
+    code: 'CS136'
   }
 })
 
