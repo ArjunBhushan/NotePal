@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import "./Login.css";
 
 export default class LoginForm extends Component {
@@ -12,7 +12,8 @@ export default class LoginForm extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      error: false
     };
   }
 
@@ -28,6 +29,25 @@ export default class LoginForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const email = this.state.email;
+    const password = this.state.password;
+    axios({
+      method: 'post',
+      url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCCKQvjW__DJNAiWpm7ZNQvJd14uQSG57A',
+      data: {
+        email,
+        password,
+        returnSecureToken: true
+      },
+      headers : {'Content-Type' : 'application/json'}
+    })
+      .then((token) => {
+        localStorage.setItem('token', token.data)
+        this.setState({error: false})
+        this.props.history.push('/');
+      }).catch((err) => {
+        this.setState({error: true})
+      });
   }
 
   render() {
@@ -37,6 +57,7 @@ export default class LoginForm extends Component {
           <div className="Login">
             <form onSubmit={this.handleSubmit}>
               <h1>Sign in to NotePal</h1>
+              {this.state.error ? <p style={{color: 'red'}}>Those credentials do not exist</p> : null}
               <FormGroup controlId="email" bsSize="large" className="username">
                 <ControlLabel>Email </ControlLabel>
                 <FormControl
@@ -59,14 +80,13 @@ export default class LoginForm extends Component {
                 bsSize="large"
                 disabled={!this.validateForm()}
                 type="submit"
-              >
-                Login
+              > Login
               </Button>
               <Grid className="signUpWrapper">
                 <Link style={{marginTop: '10px', textDecoration: 'none', color: '#484848', fontSize: 12}} to='/signup'>Don't have an account? Sign up now</Link>
               </Grid>
             </form>
-           
+
           </div>
         </Paper>
       </Grid>

@@ -11,7 +11,7 @@ import { CircularProgress } from '@material-ui/core';
 // constants
 const UPLOAD_URL = 'https://notepal-api.herokuapp.com/analyzePicture';
 
-// component definiton 
+// component definiton
 class ImageUpload extends React.Component {
 
   constructor(props) {
@@ -36,6 +36,11 @@ class ImageUpload extends React.Component {
   }
 
   handleImageUpload(file) {
+    if (!file) {
+      return this.setState({
+        loading:false
+      });
+    }
     let upload = request.post(UPLOAD_URL)
                 .field('file', file);
 
@@ -58,7 +63,7 @@ class ImageUpload extends React.Component {
       <Fragment>
         <div className="fileUploadWrapper">
           <div className="fileUpload">
-            <Dropzone 
+            <Dropzone
               className="dropzone"
               multiple={false}
               accept="image/*"
@@ -76,4 +81,4 @@ class ImageUpload extends React.Component {
 }
 
 // export component
-export default ImageUpload; 
+export default ImageUpload;

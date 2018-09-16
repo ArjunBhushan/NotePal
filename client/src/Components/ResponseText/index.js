@@ -19,7 +19,7 @@ const TRANSLATE_URL = 'https://notepal-api.herokuapp.com/translate';
 const SPELL_CHECK_URL = 'https://notepal-api.herokuapp.com/spellcheck';
 const SUMMARIZE_URL = 'https://notepal-api.herokuapp.com/summarize';
 
-// component definiton 
+// component definiton
 class ResponseText extends React.Component {
 
   constructor(props) {
@@ -27,7 +27,8 @@ class ResponseText extends React.Component {
 
     this.state = {
       text: props.text,
-      copied: false
+      copied: false,
+      isEnglish: true
     };
 
   }
@@ -35,7 +36,7 @@ class ResponseText extends React.Component {
   componentDidMount() {
     this.setState({
       text: this.props.text
-    }); 
+    });
   }
 
   handleChange(event) {
@@ -43,12 +44,16 @@ class ResponseText extends React.Component {
   }
 
   handleTranslate() {
+    let lang = 'en'
+    if (this.state.isEnglish) {
+      lang = 'fr'
+    }
     axios({
       method: 'post',
       url: TRANSLATE_URL,
       data: {
         text: this.state.text,
-        lang: 'fr'
+        lang
       }
     }).then((res)=> {
       console.log(res);
@@ -57,7 +62,12 @@ class ResponseText extends React.Component {
       });
     }).catch((err) => {
       console.log(err);
-    })
+    });
+    this.setState((state) => {
+      return {
+        isEnglish : !state.isEnglish
+      };
+    });
   }
 
   handleSpellCheck() {
@@ -120,10 +130,10 @@ class ResponseText extends React.Component {
               </Button>
             </Tooltip>
           </Grid>
-          
+
           <Grid item xs={10}>
             <textarea className="convertedText" onChange={(e) => {this.handleChange(e)}} value={this.state.text} />
-          </Grid>   
+          </Grid>
         </Grid>
         <Grid container direction="row">
           <Grid item xs={12}>
@@ -137,11 +147,11 @@ class ResponseText extends React.Component {
             </CopyToClipboard>
           </Grid>
         </Grid>
-        
+
       </div>
     )
   }
 }
 
 // export component
-export default ResponseText; 
+export default ResponseText;
