@@ -4,9 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom'
 
-import "./Login.css";
-
-export default class LoginForm extends Component {
+export default class SignUp extends Component {
   constructor(props) {
     super(props);
 
@@ -36,7 +34,7 @@ export default class LoginForm extends Component {
         <Paper>
           <div className="Login">
             <form onSubmit={this.handleSubmit}>
-              <h1>Sign in to NotePal</h1>
+              <h1>Sign up for NotePal</h1>
               <FormGroup controlId="email" bsSize="large" className="username">
                 <ControlLabel>Email </ControlLabel>
                 <FormControl
@@ -63,7 +61,7 @@ export default class LoginForm extends Component {
                 Login
               </Button>
               <Grid className="signUpWrapper">
-                <Link style={{marginTop: '10px', textDecoration: 'none'}} to='/signup'>Don't have an account? Sign up now</Link>
+                <Link style={{marginTop: '10px', textDecoration: 'none'}} to='/login'>Already have an account? Sign in now</Link>
               </Grid>
             </form>
            
