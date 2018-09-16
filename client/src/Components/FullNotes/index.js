@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography';
+import CourseCard from '../CourseCard'
 import './full-notes.css'
 import axios from 'axios'
 
@@ -25,24 +25,25 @@ class FullNotes extends Component {
   render() {
     return (
       <div>
-        <Typography variant="headline" component="h1" className="title">
-          All Notes
-        </Typography>
-        {
-          this.state.notes.map(note => (
-            <Card key={note.image} className="noteCard">
-              <CardContent>
-                <Typography variant="headline" component="h2">
-                  <Link style={{textDecoration: 'none', color: '#484848'}}
-                  to={{
+        <ul>
+          <Typography variant="headline" component="h1" className="title">
+            My Notes
+          </Typography>
+            <Grid container spacing={16}>
+            {
+              this.state.notes.map(note => (
+                <Grid key={note.image} item xs={3}>
+                  <Link style={{textDecoration: 'none'}} to={{
                     pathname: `/notes/${note.key}`,
-                    state: { text: note.text }}}
-                  >{note.text}</Link>
-                </Typography>
-              </CardContent>
-            </Card>
-          ))
-        }
+                    state: { text: note.text }}}>
+                    <CourseCard image={note.image} name={''} description={note.text} />
+                  </Link>
+                </Grid>
+              ))
+            }
+            </Grid>
+          }
+        </ul>
       </div>
     )
   }
