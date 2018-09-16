@@ -1,0 +1,32 @@
+.signinWrapper {
+  margin-top: 150px;
+}
+
+.signin {
+  padding: 50px 200px;
+}
+
+.signin form {
+  max-width: 320px;
+}
+
+.signin h1 {
+  font-size: 20px;
+  color: #484848;
+  margin-bottom: 40px;
+}
+
+.username, .password {
+  margin: 10px 0;
+}
+
+.signInWrapper {
+  margin: 25px 0;
+}
+
+.signIn {
+  color: #484848;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+}

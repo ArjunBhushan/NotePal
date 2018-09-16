@@ -1,6 +1,7 @@
 # NotePal
 
 A web application for converting handwritten notes to editable text. 
+Created by Arjun Bhushan, Kevin Jin, Molan Ren, and Priyanshu Gandhi. 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Features
