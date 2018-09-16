@@ -123,6 +123,27 @@ app.post('/analyzePicture', upload.single('file'), (req, res) => {
     });
 });
 
+app.get('/myMessages/:userId', (req, res) => {
+  const userId = req.params.userId;
+  console.log(userId)
+  axios({
+    method: 'get',
+    url: 'https://notepal-216511.firebaseio.com/notes/.json'
+  }).then((data) => {
+
+    let keys = Object.keys(data.data).filter((key) => {
+      return data.data[key].userId === userId
+    });
+    let messages = [];
+    keys.forEach((key) => {
+      messages.push(data.data[key]);
+    });
+    res.send({messages})
+  }).catch((err) => {
+    res.status(400).send({Error: 'An error occured while fetching your messages'});
+  })
+});
+
 app.listen(PORT, () => {
   console.log(`[Server] : Running on port ${PORT}`);
 });
