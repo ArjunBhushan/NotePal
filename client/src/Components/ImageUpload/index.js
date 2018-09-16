@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import ResponseText from '../ResponseText';
-
+import axios from 'axios';
 // styling
 import './image-upload.css'
 import { CircularProgress } from '@material-ui/core';
@@ -21,8 +21,9 @@ class ImageUpload extends React.Component {
       text: null,
       uploadedFile: {
         name: '',
-        loading: false
-      }
+      },
+      loading: false,
+      error: false
     };
   }
 
@@ -36,24 +37,41 @@ class ImageUpload extends React.Component {
   }
 
   handleImageUpload(file) {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
     if (!file) {
       return this.setState({
         loading:false
       });
     }
+
     let upload = request.post(UPLOAD_URL)
-                .field('file', file);
+                .field('file', file)
 
     upload.end((err, response) => {
       if (err) {
-        console.error(err);
+        return this.setState({error: true})
       }
-
-      if (response.body !== '') {
-        this.setState({
-          text: response.body.fullText,
-          loading: false
-        });
+      if (response.body) {
+        axios({
+          method: 'post',
+          url: `https://notepal-216511.firebaseio.com/notes.json?auth=${token}`,
+          data: {
+            image: response.body.filePath,
+            text: response.body.fullText,
+            userId
+          }
+        })
+          .then(() => {
+            this.setState({
+              text: response.body.fullText,
+              loading: false,
+              error: false
+            });
+          })
+          .catch((err) => {
+            this.setState({error: true})
+          });
       }
     });
   }
@@ -70,10 +88,10 @@ class ImageUpload extends React.Component {
               onDrop={this.onImageDrop.bind(this)}>
                 <p>Drop an image or click to upload.</p>
             </Dropzone>
+            <p style = {{color: 'red'}}>An error occurred while uploading that file.</p>
             {this.state.loading ? <CircularProgress /> : <div />}
           </div>
         </div>
-
         {this.state.text === null ? null : <ResponseText name={this.state.uploadedFile.name} text={this.state.text}/>}
       </Fragment>
     )
