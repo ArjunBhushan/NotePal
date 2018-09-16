@@ -16,7 +16,7 @@ class FullNotes extends Component {
     const userId = localStorage.getItem('userId');
     axios({
       method: 'get',
-      url: `https://notepal-api.herokuapp.com/myMessages/${userId}`
+      url: `https://notepal-api.herokuapp.com/myNotes/${userId}`
     }).then((res) => {
       this.setState({notes: res.data.notes});
     })
