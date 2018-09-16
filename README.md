@@ -2,7 +2,7 @@
 
 A web application for converting handwritten notes to editable text. 
 
-![Image Upload](screenshots/image_upload/.png "Image Upload Page")
+![Image Upload](screenshots/image_upload.png "Image Upload Page")
 
 ## Features
 
