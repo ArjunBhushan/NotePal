@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Home from '../Home'
 import LoginForm from '../Login'
 import Courses from '../Courses'
@@ -11,16 +11,20 @@ import SignUp from '../SignUp'
 // and /schedule routes will match any pathname that starts
 // with /roster or /schedule. The / route will only match
 // when the pathname is exactly the string "/"
-const Main = () => (
-  <main>
-    <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/login' component={LoginForm}/>
-      <Route path='/courses' component={Courses}/>
-      <Route path='/notes' component={Notes}/>
-      <Route path='/signup' component={SignUp}/>
-    </Switch>
-  </main>
-)
+const Main = () => {
+  const token = localStorage.getItem('token');
+  return (
+    <main>
+      <Switch>
+        <Route path='/login' component={LoginForm}/>
+        {token ? <Route path='/courses' component={Courses}/> : null}
+        {token ? <Route path='/notes' component={Notes}/> : null}
+        <Route path='/signup' component={SignUp}/>
+        {token ? <Route path='/' component={Home}/> : null}
+        <Redirect to = '/login'/>
+      </Switch>
+    </main>
+  )
+};
 
 export default Main
