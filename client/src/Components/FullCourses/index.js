@@ -1,6 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import CourseCard from '../CourseCard'
+import Grid from '@material-ui/core/Grid';
 import Response from '../../api'
 import './full-courses.css'
 import { Link } from 'react-router-dom'
@@ -13,13 +14,15 @@ const FullCourses = () => (
       <Typography variant="headline" component="h1">
         All Courses
       </Typography>
-      {
-        Response.all().map(p => (
-          <Link style={{textDecoration: 'none'}} to={'/courses/' + p.id}>
-            <CourseCard name={p.name} description={p.description} />
-          </Link>
-        ))
-      }
+      <Grid container spacing={12}>
+        {Response.all().map(p => (
+          <Grid item xs={4}>
+            <Link key = {p.id} style={{textDecoration: 'none'}} to={'/courses/' + p.id}>
+              <CourseCard name={p.name} description={p.description} />
+            </Link>
+          </Grid>
+        ))}
+      </Grid>
     </ul>
   </div>
 )

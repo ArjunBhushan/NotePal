@@ -18,7 +18,8 @@ const styles = {
 function CourseCard(props) {
   const { classes } = props;
   return (
-    <Card style={{marginBottom: '20px', marginTop: '20px'}} className={classes.card}>
+    <Card style={{marginBottom: '20px', marginTop: '20px', height: '200px', overflowY: 'hidden'}}
+    className={classes.card}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
